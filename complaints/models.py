@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Engineers(models.Model):
+class Engineer(models.Model):
     engineer_name = models.CharField(max_length=200)
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Location(models.Model):
 
 class Complaint(models.Model):
     status = models.ForeignKey(Status)
-    assigned_to = models.ForeignKey(Engineers)
+    assigned_to = models.ForeignKey(Engineer)
     lock_date = models.DateTimeField('date locked')
     client_name = models.CharField(max_length=200)
     complaint_details = models.CharField(max_length = 500)
