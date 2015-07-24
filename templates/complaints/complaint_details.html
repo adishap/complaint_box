@@ -1,1 +1,36 @@
-{{ complaint }}
+
+<h1>{{ complaint.complaint_details }}</h1>
+<strong> Client Name : </strong> {{ complaint.client_name }}<br>
+<strong> Date : </strong> {{ complaint.lock_date }}<br>
+<strong> Engineer Assigned : </strong> {{ complaint.assigned_to }}<br>
+<strong> Status : </strong> {{ complaint.status }}<br>
+
+{% with complaint.device_set.all as devices %}
+	{% if devices|length > 0 %}
+		<strong> Devices related to complaint in office : </strong> 
+		{% for device in devices %}
+    		<ul>
+    			<li>{{ device.device_name }}</li>
+    		</ul>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if complaint.status|stringformat:"s" == 'Pending' %}
+<h3>Update Status</h3>
+
+<form action="{% url 'complaints:complaint_update' complaint.id %}" method="post">
+{% csrf_token %}
+
+    <select name="status">
+    {% for status in latest_status_list %}
+    	{% if status|stringformat:"s" != 'Pending' %}
+    	<option value="{{status.id}}">{{ status }}</option>
+    	{% endif %}
+    {% endfor %}
+    </select>
+    <input type="submit" value="Update" />
+</form>
+{% endif %}
