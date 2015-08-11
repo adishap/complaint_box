@@ -1,0 +1,18 @@
+
+
+{% if latest_amc_list %}
+    <table>
+    <tr>
+    <th>Client Name</th>
+    <th>Renewal Date</th>
+    </tr>
+    {% for amc in latest_amc_list %}
+        <tr>
+        <td><a href="{% url 'complaints:amc_details' amc.id %}">{{ amc.client_name }}</a></td>
+        <td><a href="{% url 'complaints:amc_details' amc.id %}">{{ amc.renewal_date }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No AMC Clients are available.</p>
+{% endif %}

@@ -2,14 +2,26 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
-from .models import Engineer , Complaint , Status
+from .models import Engineer , Complaint , Status , Amc_client
 
 
 def index(request):
 	output = '''<a href='/complaints/engineers/'>List of Engineers</a>
 	 <br>
-	 <a href='/complaints/complaints/'>List of complaints</a>'''
+	 <a href='/complaints/complaints/'>List of complaints</a>
+     <br ><a href='/complaints/amc_clients/'>AMC Clients</a>'''
 	return HttpResponse(output)
+
+
+def amc_clients(request):
+    latest_amc_list = Amc_client.objects.all()
+    context = {'latest_amc_list': latest_amc_list}
+    return render(request, 'complaints/amc_clients.html', context)
+
+
+def amc_details(request, amc_id):
+    amc = get_object_or_404(Amc_client, pk=amc_id)
+    return render(request, 'complaints/amc_details.html', {'amc': amc})
 
 def engineers(request):
 	latest_engineer_list = Engineer.objects.all()

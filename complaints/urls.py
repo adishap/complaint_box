@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^complaints/$', views.complaints, name='complaints'),
     url(r'^complaints/(?P<complaint_id>[0-9]+)/$', views.complaint_details, name='complaint_details'),
  	url(r'^complaints/(?P<complaint_id>[0-9]+)/complaint_update/$', views.complaint_update, name='complaint_update'),   
-    # ex: /polls/5/results/
+    url(r'^amc_clients/$', views.amc_clients, name='amc_clients'),
+    url(r'^amc_clients/(?P<amc_id>[0-9]+)/$', views.amc_details, name='amc_details'),
 ]

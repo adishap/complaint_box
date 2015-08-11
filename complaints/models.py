@@ -25,8 +25,8 @@ class Amc_client(models.Model):
     amc_type = models.ForeignKey(Amc_type)
     renewal_date = models.DateTimeField("Renewal date")
     reminder_date = models.DateTimeField("Reminder date")
-
-    def __str__():
+    
+    def __str__(self):
         return self.client_name
 
 class Engineer(models.Model):
