@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'complaints/css/bootstrap.css' %}" />
+<br>
+<br>
+<!--navbar starts-->
+
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="#">
+        <img alt="JS Base Computers" src="">
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+     
+      <ul class="nav navbar-nav navbar-right" >
+        <li><a href='{% url "complaints:engineers"  %}'>Engineers</a></li>
+    	<li><a href='{% url "complaints:complaints"  %}'>Complaints</a></li>
+        <li><a href='{% url "complaints:amc_clients"  %}'>AMC Clients</a></li>
+        <li><a href='/admin'>Admin</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  
+<!--nnavbar ends-->  

@@ -6,11 +6,7 @@ from .models import Engineer , Complaint , Status , Amc_client
 
 
 def index(request):
-	output = '''<a href='/complaints/engineers/'>List of Engineers</a>
-	 <br>
-	 <a href='/complaints/complaints/'>List of complaints</a>
-     <br ><a href='/complaints/amc_clients/'>AMC Clients</a>'''
-	return HttpResponse(output)
+	return render(request, 'complaints/index.html')
 
 
 def amc_clients(request):
