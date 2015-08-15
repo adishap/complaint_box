@@ -1,4 +1,10 @@
+{% extends 'complaints/base.html' %}
 
+{%block pagetitle %} Complaints {% endblock %}
+
+{% block title %}{{ complaint.client_name }} {% endblock %}
+
+{% block primary %} 
 
 <h1>{{ complaint.complaint_details }}</h1>
 <strong> Client Name : </strong> {{ complaint.client_name }}<br>
@@ -37,3 +43,5 @@
 {% endif %}
 
 <a href='{% url "complaints:complaints"  %}'>Go Back</a>
+
+{% endblock %}

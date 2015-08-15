@@ -1,4 +1,13 @@
+{% extends 'complaints/base.html' %}
 
-<h1>{{ amc.client_name }}</h1>
+{%block pagetitle %} AMC Client {% endblock %}
+
+{% block title %}{{ amc.client_name }}{% endblock %}
+
+
+{% block primary %} 
+ 
 <strong>Type : </strong> {{ amc.amc_type }}<br>
 <strong>Renewal Date : </strong> {{ amc.renewal_date }}<br>
+
+{% endblock %}
