@@ -11,6 +11,7 @@
 <strong> Date : </strong> {{ complaint.lock_date }}<br>
 <strong> Engineer Assigned : </strong> {{ complaint.assigned_to }}<br>
 <strong> Status : </strong> {{ complaint.status }}<br>
+<strong> Location : </strong> {{ complaint.location }}<br>
 
 {% with complaint.device_set.all as devices %}
 	{% if devices|length > 0 %}

@@ -1,0 +1,26 @@
+{% extends 'complaints/base.html' %}
+
+{%block pagetitle %} Location {% endblock %}
+
+{% block primary %}
+
+{% block title %} Add Complaint {% endblock %}
+
+{{latest_location_list}}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'complaints:add_complaint' %}" method="post">
+    {% csrf_token %}
+
+{% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+{% endfor %}
+
+    <input type="submit" value="Submit" />
+</form>
+{{success_msg}}
+{% endblock %}

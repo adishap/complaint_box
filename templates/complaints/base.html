@@ -39,7 +39,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Complaints<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href='{% url "complaints:complaints"  %}'>Complaints</a></li>
-            <li><a href="#">Add Complaint</a></li>
+            <li><a href='{% url "complaints:add_complaint"  %}'>Add Complaint</a></li>
           </ul>
         </li>
     	<li><a href='{% url "complaints:amc_clients"  %}'>AMC Clients</a></li>
